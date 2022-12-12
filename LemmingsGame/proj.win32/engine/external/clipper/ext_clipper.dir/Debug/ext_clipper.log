@@ -1,0 +1,3 @@
+﻿  Building Custom Rule F:/lemmings/LemmingsGame/cocos2d/external/clipper/CMakeLists.txt
+  clipper.cpp
+  ext_clipper.vcxproj -> F:\lemmings\LemmingsGame\proj.win32\lib\Debug\ext_clipper.lib
