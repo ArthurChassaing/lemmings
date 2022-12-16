@@ -1,5 +1,4 @@
-﻿  Building Custom Rule F:/lemmings/LemmingsGame/cocos2d/external/recast/CMakeLists.txt
-  DebugDraw.cpp
+﻿  DebugDraw.cpp
   DetourDebugDraw.cpp
   DetourAlloc.cpp
   DetourCommon.cpp
@@ -17,5 +16,4 @@ F:\lemmings\LemmingsGame\cocos2d\external\recast\DetourCrowd\DetourObstacleAvoid
   DetourTileCache.cpp
   DetourTileCacheBuilder.cpp
   Generating Code...
-  fastlz.c
   ext_recast.vcxproj -> F:\lemmings\LemmingsGame\proj.win32\lib\Debug\ext_recast.lib

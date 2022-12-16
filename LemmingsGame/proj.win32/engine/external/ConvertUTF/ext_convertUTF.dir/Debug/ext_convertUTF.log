@@ -1,4 +1,2 @@
-﻿  Building Custom Rule F:/lemmings/LemmingsGame/cocos2d/external/ConvertUTF/CMakeLists.txt
-  ConvertUTF.c
-  ConvertUTFWrapper.cpp
+﻿  ConvertUTF.c
   ext_convertUTF.vcxproj -> F:\lemmings\LemmingsGame\proj.win32\lib\Debug\ext_convertUTF.lib
