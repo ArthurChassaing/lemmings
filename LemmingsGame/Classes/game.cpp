@@ -1,13 +1,14 @@
 #include "game.h"
+#include "sprite.h"
 #define CC_CALLBACK_1
 
 USING_NS_CC;
 
-Scene* game::createScene()
-{
-    auto gameScene = Scene::create();
-    return gameScene;
-}
+//Scene* game::createScene()
+//{
+//    auto gameScene = game::create();
+//    return gameScene;
+//}
 
 static void problemLoading(const char* filename)
 {
@@ -18,9 +19,8 @@ static void problemLoading(const char* filename)
 
 bool game::init()
 {
-
-
-
+    sprite* spr = new sprite;
+    spr->setSprite(this);
 
 
 

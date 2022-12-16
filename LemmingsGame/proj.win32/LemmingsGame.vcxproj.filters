@@ -16,6 +16,9 @@
     <ClCompile Include="..\Classes\game.cpp">
       <Filter>Source Files\Classes</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\sprite.cpp">
+      <Filter>Source Files\Classes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="F:\lemmings\LemmingsGame\Classes\AppDelegate.h">
@@ -49,6 +52,9 @@
       <Filter>Resources\res</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\game.h">
+      <Filter>Source Files\Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\sprite.h">
       <Filter>Source Files\Classes</Filter>
     </ClInclude>
   </ItemGroup>

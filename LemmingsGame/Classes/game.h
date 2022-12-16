@@ -10,13 +10,14 @@ USING_NS_CC;
 class game : public cocos2d::Scene
 {
 public:
-	static cocos2d::Scene* createScene();
+	//static cocos2d::Scene* createScene();
 	void pauseScreen();
 
 	virtual bool init();
 
 	Sprite* gameBg = Sprite::create("F:/lemmings/LemmingsGame/Assets/Battleground1.png");
-
+	
+	CREATE_FUNC(game);
 
 private:
 	bool pauseMenuOpen = false;

@@ -28,6 +28,9 @@ bool HelloWorld::init()
     auto visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
+    
+
+
     /////////////////////////////
     // 2. add a menu item with "X" image, which is clicked to quit the program
     //    you may modify it.
@@ -102,7 +105,7 @@ bool HelloWorld::init()
     startButton->addTouchEventListener([&](Ref* sender, ui::Widget::TouchEventType type) {
 
         //add game scene  and game scene background
-        auto gameScene = Scene::create();
+        auto gameScene = game::create();
 
         auto gameBg = Sprite::create("F:/lemmings/LemmingsGame/Assets/Battleground1.png");
         gameBg->setPosition(Vec2(visibleSize.width + origin.x + 500, visibleSize.height + origin.y + 400));
