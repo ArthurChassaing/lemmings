@@ -114,7 +114,6 @@ bool HelloWorld::init()
 
         gameScene->addChild(gameBg);*/
 
-
         switch (type)
         {
         case ui::Widget::TouchEventType::BEGAN:
