@@ -27,12 +27,10 @@ bool game::init()
     }
 
     CCLOG("in the second scene");
-
     auto bgSprite = Sprite::create("F:/lemmings/LemmingsGame/Assets/Battleground1.png");
 
     auto visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
-
     cocos2d::Size screenSize = cocos2d::Director::getInstance()->getOpenGLView()->getFrameSize();
     cocos2d::Vec2 centerPos = cocos2d::Vec2(screenSize.width / 2.0f, screenSize.height / 2.0f);
 
@@ -42,6 +40,39 @@ bool game::init()
     bgSprite->setVisible(true);
 
     this->addChild(bgSprite, 0);
+
+
+    // add bomb button
+    auto bombButton = ui::Button::create("F:/lemmings/LemmingsGame/Assets/bomb.png", "F:/lemmings/LemmingsGame/Assets/bomb.png", "F:/lemmings/LemmingsGame/Assets/bomb.png");
+
+    bombButton->addTouchEventListener([&](Ref* sender, ui::Widget::TouchEventType type) {
+
+
+        switch (type)
+        {
+        case ui::Widget::TouchEventType::BEGAN:
+
+            break;
+        case ui::Widget::TouchEventType::ENDED:
+            break;
+        default:
+            break;
+        }
+        });
+
+    if (bombButton == nullptr)
+    {
+        problemLoading("'bomb.png'");
+    }
+    else
+    {
+        // position the sprite on the screen
+        bombButton->setPosition(Vec2(visibleSize.width / 2 + origin.x, 50));
+        bombButton->setScale(10.0);
+
+        // add the sprite as a child to this layer
+        this->addChild(bombButton, 2);
+    }
 
     return true;
 }
