@@ -62,10 +62,10 @@ bool HelloWorld::init()
     /////////////////////////////
     // 3. add your codes below...
 
-    // add a label shows "Hello World"
+    // add a label shows the game name
     // create and initialize a label
 
-    auto label = Label::createWithTTF("LE JEU", "fonts/Marker Felt.ttf", 84);
+    auto label = Label::createWithTTF("Lemmings Renegate", "fonts/Marker Felt.ttf", 84);
     if (label == nullptr)
     {
         problemLoading("'fonts/Marker Felt.ttf'");
@@ -80,8 +80,8 @@ bool HelloWorld::init()
         this->addChild(label, 1);
     }
 
-    // add start screen background"
-    auto sprite = Sprite::create("F:/lemmings/LemmingsGame/title_screen_image_2.png");
+    // add start screen background
+    auto sprite = Sprite::create("F:/lemmings/LemmingsGame/Assets/Mountain_bg.jpg");
     if (sprite == nullptr)
     {
         problemLoading("'title_screen_image_2.png'");
@@ -104,21 +104,14 @@ bool HelloWorld::init()
 
     startButton->addTouchEventListener([&](Ref* sender, ui::Widget::TouchEventType type) {
 
-        //add game scene  and game scene background
-        auto gameScene = game::create();
-
-        auto gameBg = Sprite::create("F:/lemmings/LemmingsGame/Assets/Battleground1.png");
-        gameBg->setPosition(Vec2(visibleSize.width + origin.x + 500, visibleSize.height + origin.y + 400));
-        gameBg->setContentSize(Size(gameBg->getContentSize()*1.6));
-
-        gameScene->addChild(gameBg);
+        //add game scene
 
         switch (type)
         {
         case ui::Widget::TouchEventType::BEGAN:
+            game::createScene();
             break;
         case ui::Widget::TouchEventType::ENDED:
-            Director::getInstance()->replaceScene(gameScene);
             break;
         default:
             break;

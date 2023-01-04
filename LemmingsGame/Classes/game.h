@@ -14,10 +14,11 @@ public:
 	void pauseScreen();
 
 	virtual bool init();
-
-	Sprite* gameBg = Sprite::create("F:/lemmings/LemmingsGame/Assets/Battleground1.png");
 	
+	static cocos2d::Scene* createScene();
+
 	CREATE_FUNC(game);
+
 
 private:
 	bool pauseMenuOpen = false;
