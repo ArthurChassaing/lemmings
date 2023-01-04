@@ -1,7 +1,1 @@
-<<<<<<< Updated upstream
 ﻿  ext_convertUTF.vcxproj -> F:\lemmings\LemmingsGame\proj.win32\lib\Debug\ext_convertUTF.lib
-=======
-﻿  ConvertUTF.c
-  ConvertUTFWrapper.cpp
-  ext_convertUTF.vcxproj -> F:\lemmings\LemmingsGame\proj.win32\lib\Debug\ext_convertUTF.lib
->>>>>>> Stashed changes

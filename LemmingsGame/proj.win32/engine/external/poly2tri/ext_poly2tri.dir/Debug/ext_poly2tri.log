@@ -1,11 +1,1 @@
-<<<<<<< Updated upstream
 ﻿  ext_poly2tri.vcxproj -> F:\lemmings\LemmingsGame\proj.win32\lib\Debug\ext_poly2tri.lib
-=======
-﻿  shapes.cc
-  sweep.cc
-  sweep_context.cc
-  cdt.cc
-  advancing_front.cc
-  Génération de code en cours...
-  ext_poly2tri.vcxproj -> F:\lemmings\LemmingsGame\proj.win32\lib\Debug\ext_poly2tri.lib
->>>>>>> Stashed changes
