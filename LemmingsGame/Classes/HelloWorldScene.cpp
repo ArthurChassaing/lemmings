@@ -81,15 +81,9 @@ bool HelloWorld::init()
         this->addChild(label, 1);
     }
 
-<<<<<<< Updated upstream
-    // add start screen background
-    auto sprite = Sprite::create("F:/lemmings/LemmingsGame/Assets/Mountain_bg.jpg");
-    if (sprite == nullptr)
-=======
     // add start screen background"
     auto map = TMXTiledMap::create("map.tmx");
     if (map == nullptr)
->>>>>>> Stashed changes
     {
         problemLoading("'map.tmx'");
     }
@@ -111,9 +105,6 @@ bool HelloWorld::init()
 
     startButton->addTouchEventListener([&](Ref* sender, ui::Widget::TouchEventType type) {
 
-<<<<<<< Updated upstream
-        //add game scene
-=======
         //add game scene  and game scene background
         auto gameScene = game::create();
         
@@ -122,7 +113,7 @@ bool HelloWorld::init()
         gameBg->setContentSize(Size(gameBg->getContentSize()*1.6));
 
         gameScene->addChild(gameBg);*/
->>>>>>> Stashed changes
+
 
         switch (type)
         {

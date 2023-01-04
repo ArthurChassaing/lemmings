@@ -87,14 +87,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-<<<<<<< Updated upstream
     <None Include="..\Resources\crash.tmx">
       <Filter>Resources</Filter>
     </None>
     <None Include="..\Resources\Map.tmx">
-=======
-    <None Include="..\Resources\map.tmx">
->>>>>>> Stashed changes
       <Filter>Resources</Filter>
     </None>
   </ItemGroup>
