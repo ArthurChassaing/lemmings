@@ -28,7 +28,6 @@ bool game::init()
 
     CCLOG("in the second scene");
 
- 
    auto visibleSize = Director::getInstance()->getVisibleSize();
    Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
@@ -38,6 +37,40 @@ bool game::init()
    auto map = TMXTiledMap::create("Map.tmx");
    map->setScale(2.1);
    this->addChild(map);
+
+
+
+    // add bomb button
+    auto bombButton = ui::Button::create("F:/lemmings/LemmingsGame/Assets/bomb.png", "F:/lemmings/LemmingsGame/Assets/bomb.png", "F:/lemmings/LemmingsGame/Assets/bomb.png");
+
+    bombButton->addTouchEventListener([&](Ref* sender, ui::Widget::TouchEventType type) {
+
+
+        switch (type)
+        {
+        case ui::Widget::TouchEventType::BEGAN:
+
+            break;
+        case ui::Widget::TouchEventType::ENDED:
+            break;
+        default:
+            break;
+        }
+        });
+
+    if (bombButton == nullptr)
+    {
+        problemLoading("'bomb.png'");
+    }
+    else
+    {
+        // position the sprite on the screen
+        bombButton->setPosition(Vec2(visibleSize.width / 2 + origin.x, 50));
+        bombButton->setScale(10.0);
+
+        // add the sprite as a child to this layer
+        this->addChild(bombButton, 2);
+    }
 
     return true;
 }
