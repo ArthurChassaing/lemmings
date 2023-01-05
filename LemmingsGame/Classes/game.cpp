@@ -64,39 +64,59 @@ bool game::init()
    
 
 
-    // add bomb button
-    //auto bombButton = ui::Button::create("F:/lemmings/LemmingsGame/Assets/bomb.png", "F:/lemmings/LemmingsGame/Assets/bomb.png", "F:/lemmings/LemmingsGame/Assets/bomb.png");
+    //add bomb button
+    auto bombButton = ui::Button::create("F:/lemmings/LemmingsGame/Assets/bomb.png", "F:/lemmings/LemmingsGame/Assets/bomb.png", "F:/lemmings/LemmingsGame/Assets/bomb.png");
 
-    //bombButton->addTouchEventListener([&](Ref* sender, ui::Widget::TouchEventType type) {
+    bombButton->addTouchEventListener([&](Ref* sender, ui::Widget::TouchEventType type) {
 
 
-    //    switch (type)
-    //    {
-    //    case ui::Widget::TouchEventType::BEGAN:
+        switch (type)
+        {
+        case ui::Widget::TouchEventType::BEGAN:
+            isBombActivated = true;
+            CCLOG("La bombe s'active");
+            break;
+        case ui::Widget::TouchEventType::ENDED:
+            break;
+        default:
+            break;
+        }
+        });
 
-    //        break;
-    //    case ui::Widget::TouchEventType::ENDED:
-    //        break;
-    //    default:
-    //        break;
-    //    }
-    //    });
+    if (bombButton == nullptr)
+    {
+        problemLoading("'bomb.png'");
+    }
+    else
+    {
+        //position the sprite on the screen
+        bombButton->setPosition(Vec2(visibleSize.width / 2 + origin.x, 50));
+        bombButton->setScale(0.4);
 
-    //if (bombButton == nullptr)
-    //{
-    //    problemLoading("'bomb.png'");
-    //}
-    //else
-    //{
-    //    // position the sprite on the screen
-    //    bombButton->setPosition(Vec2(visibleSize.width / 2 + origin.x, 50));
-    //    bombButton->setScale(10.0);
+        //add the sprite as a child to this layer
+        this->addChild(bombButton, 2);
+    }
 
-    //    // add the sprite as a child to this layer
-    //    this->addChild(bombButton, 2);
-    //}
+
+    auto clickListener = EventListenerTouchOneByOne::create();
+    clickListener->onTouchBegan = CC_CALLBACK_2(game::onTouchBegan, this);
+    _eventDispatcher->addEventListenerWithSceneGraphPriority(clickListener, this);
 
 
     return true;
 }
 
+bool game::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event)
+{
+    if (isBombActivated == true) 
+    {
+        //Détruire les murs destructibles dans un certain rayon autour de la souris
+
+        CCLOG("La bombe explose");
+
+        isBombActivated = false;
+    }
+ 
+
+    return true;
+}
