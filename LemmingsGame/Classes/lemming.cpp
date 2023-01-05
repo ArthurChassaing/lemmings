@@ -34,7 +34,9 @@ void lemming::setSprite(game* scene)
 
     auto physicsBody = PhysicsBody::createBox(sprite->getContentSize(), PhysicsMaterial(0, 1, 0));
     physicsBody->setDynamic(true);
+    physicsBody->setCollisionBitmask(-1);
     sprite->setPhysicsBody(physicsBody);
+    
 
     physicsBody->setGravityEnable(true);
     //sprite->addComponent(physicsBody);  

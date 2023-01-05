@@ -50,6 +50,7 @@ bool game::init()
        auto spawn = CallFunc::create([=]() {
            lemming* test = new lemming();
            test->setSprite(this);
+         
            });
       
        cocos2d::DelayTime* delay = cocos2d::DelayTime::create(i);
