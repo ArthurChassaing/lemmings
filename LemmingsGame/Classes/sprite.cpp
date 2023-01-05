@@ -28,7 +28,7 @@ void sprite::setSprite(game* scene)
     auto action = Animate::create(animation);
 
     auto sprite = Sprite::createWithSpriteFrame(frames.front());
-    sprite->setPosition(500, 500);
+    sprite->setPosition(200, 200);
     sprite->setScale(5);
     sprite->runAction(action);
 

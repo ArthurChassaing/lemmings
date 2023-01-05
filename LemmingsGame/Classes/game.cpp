@@ -34,27 +34,17 @@ bool game::init()
 
     CCLOG("in the second scene");
 
-<<<<<<< HEAD
-    
-=======
+
    auto visibleSize = Director::getInstance()->getVisibleSize();
    Vec2 origin = Director::getInstance()->getVisibleOrigin();
->>>>>>> 8ff42ee871941f1544931ab34c8c00cc023a7d8e
-
-  cocos2d::Size screenSize = cocos2d::Director::getInstance()->getOpenGLView()->getFrameSize();
-  cocos2d::Vec2 centerPos = cocos2d::Vec2(screenSize.width / 2.0f, screenSize.height / 2.0f);
-
-<<<<<<< HEAD
-    sprite *test = new sprite;
-    test->setSprite(this);
     
-=======
    auto map = TMXTiledMap::create("Map.tmx");
    map->setScale(1.1);
    this->addChild(map);
 
    auto layer = map->getLayer("Wall");
-
+   sprite* test = new sprite;
+   test->setSprite(this);
 
 
     // add bomb button
@@ -88,7 +78,7 @@ bool game::init()
     //    // add the sprite as a child to this layer
     //    this->addChild(bombButton, 2);
     //}
->>>>>>> 8ff42ee871941f1544931ab34c8c00cc023a7d8e
+
 
     return true;
 }
