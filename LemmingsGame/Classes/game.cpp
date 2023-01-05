@@ -38,6 +38,8 @@ bool game::init()
    map->setScale(1.1);
    this->addChild(map);
 
+   auto layer = map->getLayer("Wall");
+
 
 
     // add bomb button
