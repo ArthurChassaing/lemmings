@@ -5,6 +5,7 @@ USING_NS_CC;
 
 sprite::sprite()
 {
+    
 }
 
 sprite::~sprite()
@@ -18,9 +19,9 @@ void sprite::setSprite(game* scene)
 
     Vector<SpriteFrame*> frames;
     frames.pushBack(spriteCache->getSpriteFrameByName("1.png"));
-    frames.pushBack(spriteCache->getSpriteFrameByName("2.png"));
-    frames.pushBack(spriteCache->getSpriteFrameByName("3.png"));
-    frames.pushBack(spriteCache->getSpriteFrameByName("4.png"));
+    //frames.pushBack(spriteCache->getSpriteFrameByName("2.png"));
+    //frames.pushBack(spriteCache->getSpriteFrameByName("3.png"));
+    //frames.pushBack(spriteCache->getSpriteFrameByName("4.png"));
     auto animation = Animation::createWithSpriteFrames(frames);
     animation->setDelayPerUnit(0.2);
     animation->setLoops(-1);
@@ -28,8 +29,16 @@ void sprite::setSprite(game* scene)
 
     auto sprite = Sprite::createWithSpriteFrame(frames.front());
     sprite->setPosition(500, 500);
+    sprite->setScale(5);
     sprite->runAction(action);
-    scene->addChild(sprite, 0, 1);
+
+    auto physicsBody = PhysicsBody::createBox(sprite->getContentSize(), PhysicsMaterial(0, 1, 0));
+    physicsBody->setDynamic(true);
+    sprite->setPhysicsBody(physicsBody);
+
+    physicsBody->setGravityEnable(true);
+    //sprite->addComponent(physicsBody);  
 
 
+    //scene->addChild(sprite, 0, 1);
 }
