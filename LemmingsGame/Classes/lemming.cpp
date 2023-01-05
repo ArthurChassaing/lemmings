@@ -36,9 +36,10 @@ void lemming::setSprite(game* scene)
     physicsBody->setDynamic(true);
     physicsBody->setCollisionBitmask(-1);
     sprite->setPhysicsBody(physicsBody);
-    
-
+   
     physicsBody->setGravityEnable(true);
+    sprite->getPhysicsBody()->setCategoryBitmask(0x02);
+    sprite->getPhysicsBody()->setCollisionBitmask(0x01);
     //sprite->addComponent(physicsBody);  
     sprite->getPhysicsBody()->setRotationEnable(false);
     sprite->getPhysicsBody()->setVelocity(Vec2(50, 0));
