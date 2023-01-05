@@ -14,6 +14,8 @@ public:
 	void pauseScreen();
 
 	virtual bool init();
+
+	bool onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event);
 	
 	static cocos2d::Scene* createScene();
 
@@ -22,5 +24,6 @@ public:
 
 private:
 	bool pauseMenuOpen = false;
+	bool isBombActivated = false;
 };
 
