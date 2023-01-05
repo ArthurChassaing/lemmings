@@ -1,21 +1,23 @@
 #pragma once
 
 #include "cocos2d.h"
-//#include "HelloWorldScene.h"
+#include "vector"
+
 
 class game;
 
-class sprite
+class lemming : public cocos2d::Sprite
 {
 public:
-	sprite();
-	~sprite();
+	lemming();
+	~lemming();
 	void setSprite(game* scene);
+	
 
 
 private:
-
-
+	
+	
 
 };
 

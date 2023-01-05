@@ -16,7 +16,7 @@
     <ClCompile Include="..\Classes\game.cpp">
       <Filter>Source Files\Classes</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\sprite.cpp">
+    <ClCompile Include="..\Classes\lemming.cpp">
       <Filter>Source Files\Classes</Filter>
     </ClCompile>
   </ItemGroup>
@@ -54,7 +54,7 @@
     <ClInclude Include="..\Classes\game.h">
       <Filter>Source Files\Classes</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\sprite.h">
+    <ClInclude Include="..\Classes\lemming.h">
       <Filter>Source Files\Classes</Filter>
     </ClInclude>
   </ItemGroup>
