@@ -1,5 +1,5 @@
 #include "game.h"
-#include "sprite.h"
+#include "lemming.h"
 #define CC_CALLBACK_1
 
 USING_NS_CC;
@@ -43,8 +43,25 @@ bool game::init()
    this->addChild(map);
 
    auto layer = map->getLayer("Wall");
-   sprite* test = new sprite;
-   test->setSprite(this);
+
+
+   for (int i = 0; i < 10; i++)
+   {
+       auto spawn = CallFunc::create([=]() {
+           lemming* test = new lemming();
+           test->setSprite(this);
+           });
+      
+       cocos2d::DelayTime* delay = cocos2d::DelayTime::create(i);
+       auto seq = Sequence::create(delay, spawn, nullptr);
+       runAction(seq);
+
+   }
+   
+   /*sprite* test = new sprite;
+   test->setSprite(this);*/
+   
+   
 
 
     // add bomb button
