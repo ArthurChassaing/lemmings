@@ -81,25 +81,6 @@ bool HelloWorld::init()
         this->addChild(label, 1);
     }
 
-    // add start screen background"
-    auto map = TMXTiledMap::create("map.tmx");
-    //if (map == nullptr)
-    //{
-    //    problemLoading("'map.tmx'");
-    //}
-    //else
-    //{
-    //    // position the sprite on the center of the screen
-    //    map->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
-
-    //    //map->setScale(1);
-    //    //static RenderTexture ;
-    //    // add the sprite as a child to this layer
-    //    this->addChild(map, 0,99);
-    //}
-
-
-
     // add start button
     auto startButton = ui::Button::create("F:/lemmings/LemmingsGame/start_button.png", "F:/lemmings/LemmingsGame/start_button.png", "F:/lemmings/LemmingsGame/start_button.png");
 

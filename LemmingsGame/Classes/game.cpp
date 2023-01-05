@@ -25,6 +25,7 @@ bool game::init()
     {
         return false;
     }
+    initWithPhysics();
 
     CCLOG("in the second scene");
 
@@ -36,9 +37,45 @@ bool game::init()
 
    auto map = TMXTiledMap::create("Map.tmx");
    map->setScale(1.1);
-   this->addChild(map);
+   this->addChild(map, -1, 99);
 
-   auto layer = map->getLayer("Wall");
+
+   auto Ground = map->getLayer("Foreground");
+   for (int i = 0; i < 129; ++i) 
+   {
+       for (int j = 0; j < 96; ++j) 
+       {
+           auto tile = Ground->getTileAt(Vec2(i, j));
+           if (tile != nullptr)
+           {
+               PhysicsBody* physicmap = PhysicsBody::createBox(Size(16, 16), PhysicsMaterial(0.1f, 0.5f, 0.0f));
+               physicmap->setDynamic(false);
+               physicmap->setTag(1);
+
+               tile->addComponent(physicmap);
+               tile->getPhysicsBody()->setContactTestBitmask(0xFFFFFFF);
+           }
+       }
+   }
+
+   //auto wall = map->getLayer("Wall");
+   //for (int i = 0; i < 129; ++i)
+   //{
+   //    for (int j = 0; j < 96; ++j)
+   //    {
+   //        auto tile = wall->getTileAt(Vec2(i, j));
+   //        if (tile != nullptr)
+   //        {
+   //            PhysicsBody* physicmap = PhysicsBody::createBox(Size(16, 16), PhysicsMaterial(0.1f, 0.5f, 0.0f));
+   //            physicmap->setDynamic(false);
+   //            physicmap->setTag(1);
+
+   //            tile->addComponent(physicmap);
+   //            tile->getPhysicsBody()->setContactTestBitmask(0xFFFFFFF);
+   //        }
+   //    }
+   //}
+
 
 
 
