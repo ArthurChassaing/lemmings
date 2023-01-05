@@ -86,4 +86,12 @@
       <UniqueIdentifier>{C8EF0033-CC0C-3AA1-8E76-49EF4EEC59FD}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Resources\crash.tmx">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="..\Resources\Map.tmx">
+      <Filter>Resources</Filter>
+    </None>
+  </ItemGroup>
 </Project>

@@ -1,4 +1,5 @@
 #include "HelloWorldScene.h"
+#include "AppDelegate.h"
 
 USING_NS_CC;
 
@@ -80,22 +81,22 @@ bool HelloWorld::init()
         this->addChild(label, 1);
     }
 
-    // add start screen background
-    auto sprite = Sprite::create("F:/lemmings/LemmingsGame/Assets/Mountain_bg.jpg");
-    if (sprite == nullptr)
-    {
-        problemLoading("'title_screen_image_2.png'");
-    }
-    else
-    {
-        // position the sprite on the center of the screen
-        sprite->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
+    // add start screen background"
+    auto map = TMXTiledMap::create("map.tmx");
+    //if (map == nullptr)
+    //{
+    //    problemLoading("'map.tmx'");
+    //}
+    //else
+    //{
+    //    // position the sprite on the center of the screen
+    //    map->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
 
-        sprite->setContentSize(Size(1000, 1000));
-
-        // add the sprite as a child to this layer
-        this->addChild(sprite, 0);
-    }
+    //    //map->setScale(1);
+    //    //static RenderTexture ;
+    //    // add the sprite as a child to this layer
+    //    this->addChild(map, 0,99);
+    //}
 
 
 
@@ -104,7 +105,14 @@ bool HelloWorld::init()
 
     startButton->addTouchEventListener([&](Ref* sender, ui::Widget::TouchEventType type) {
 
-        //add game scene
+        //add game scene  and game scene background
+        auto gameScene = game::create();
+        
+        auto gameBg = Sprite::create("F:/lemmings/LemmingsGame/Assets/Battleground1.png");
+        gameBg->setPosition(Vec2(visibleSize.width + origin.x + 500, visibleSize.height + origin.y + 400));
+        gameBg->setContentSize(Size(gameBg->getContentSize()*1.6));
+
+        gameScene->addChild(gameBg);
 
         switch (type)
         {
