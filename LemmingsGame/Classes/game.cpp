@@ -28,9 +28,8 @@ bool game::init()
     }
     initWithPhysics();
 
-    initWithPhysics();
-
-    //this->getPhysicsWorld()->setGravity(Vec2(0, -10));
+    this->getPhysicsWorld()->setDebugDrawMask(true);
+     //this->getPhysicsWorld()->setGravity(Vec2(0, -10));
     
 
     CCLOG("in the second scene");
@@ -52,7 +51,7 @@ bool game::init()
            auto tile = Ground->getTileAt(Vec2(i, j));
            if (tile != nullptr)
            {
-               PhysicsBody* physicmap = PhysicsBody::createBox(Size(16, 16), PhysicsMaterial(0.1f, 0.5f, 0.0f));
+               PhysicsBody* physicmap = PhysicsBody::createBox(Size(16, 8), PhysicsMaterial(0.1f, 0.5f, 0.0f));
                physicmap->setDynamic(false);
                physicmap->setTag(1);
 
@@ -62,23 +61,23 @@ bool game::init()
        }
    }
 
-   //auto wall = map->getLayer("Wall");
-   //for (int i = 0; i < 129; ++i)
-   //{
-   //    for (int j = 0; j < 96; ++j)
-   //    {
-   //        auto tile = wall->getTileAt(Vec2(i, j));
-   //        if (tile != nullptr)
-   //        {
-   //            PhysicsBody* physicmap = PhysicsBody::createBox(Size(16, 16), PhysicsMaterial(0.1f, 0.5f, 0.0f));
-   //            physicmap->setDynamic(false);
-   //            physicmap->setTag(1);
+   auto wall = map->getLayer("Wall");
+   for (int i = 0; i < 129; ++i)
+   {
+       for (int j = 0; j < 96; ++j)
+       {
+           auto tile = wall->getTileAt(Vec2(i, j));
+           if (tile != nullptr)
+           {
+               PhysicsBody* physicmap = PhysicsBody::createBox(Size(16, 16), PhysicsMaterial(0.1f, 0.5f, 0.0f));
+               physicmap->setDynamic(false);
+               physicmap->setTag(1);
 
-   //            tile->addComponent(physicmap);
-   //            tile->getPhysicsBody()->setContactTestBitmask(0xFFFFFFF);
-   //        }
-   //    }
-   //}
+               tile->addComponent(physicmap);
+               tile->getPhysicsBody()->setContactTestBitmask(0xFFFFFFF);
+           }
+       }
+   }
 
 
 
@@ -94,11 +93,6 @@ bool game::init()
        runAction(seq);
 
    }
-   
-   /*sprite* test = new sprite;
-   test->setSprite(this);*/
-   
-   
 
 
     //add bomb button
@@ -112,6 +106,18 @@ bool game::init()
         case ui::Widget::TouchEventType::BEGAN:
             isBombActivated = true;
             CCLOG("La bombe s'active");
+            /*auto wall = map->getLayer("Wall");
+            for (int i = 0; i < 129; ++i)
+            {
+                for (int j = 0; j < 96; ++j)
+                {
+                    auto tile = wall->getTileAt(Vec2(i, j));
+                    if (tile != nullptr)
+                    {
+                        wall[i][j] == 0;
+                    }
+                }
+            }*/
             break;
         case ui::Widget::TouchEventType::ENDED:
             break;
@@ -148,9 +154,7 @@ bool game::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event)
     if (isBombActivated == true) 
     {
         //Détruire les murs destructibles dans un certain rayon autour de la souris
-
         CCLOG("La bombe explose");
-
         isBombActivated = false;
     }
  
